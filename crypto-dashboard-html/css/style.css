@@ -1,0 +1,1093 @@
+/* Base styles */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+:root {
+    /* Colors */
+    --bg-primary: #000000;
+    --bg-card: #1A1A1A;
+    --bg-sidebar: #000000;
+    --text-primary: #FFFFFF;
+    --text-secondary: #888888;
+    --accent-color: #FFB800;
+    --border-color: #333333;
+    --success-color: #00C087;
+    --danger-color: #FF4D4D;
+    --chart-bg: #1A1A1A;
+    
+    /* Crypto Colors */
+    --btc-color: #FFB800;
+    --eth-color: #627EEA;
+    --sol-color: #00FFA3;
+    --ltc-color: #345D9D;
+    
+    /* Chart Colors */
+    --chart-line: #FFB800;
+    --chart-grid: #333333;
+    --chart-text: #888888;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, .main-content, .dashboard-grid, .dashboard-bottom-row, .balance-row, .portfolio-section, .chart-section {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary);
+}
+
+/* Sidebar font consistency */
+.nav-item, .sidebar-collapsible .nav-item, .sidebar-collapsible .collapse .nav-item, .sidebar-collapsible .collapse a.nav-item {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    color: var(--text-secondary) !important;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.sidebar-collapsible .collapse .nav-item, .sidebar-collapsible .collapse a.nav-item {
+    padding-left: 36px;
+    background: none;
+    color: var(--text-secondary) !important;
+    font-size: 0.97rem !important;
+    font-weight: 400 !important;
+}
+
+.sidebar-collapsible .collapse .nav-item:hover, .sidebar-collapsible .collapse a.nav-item:hover {
+    color: var(--accent-color);
+    background: none;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+/* App Layout */
+.app-wrapper {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    position: relative;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 240px;
+    height: 100vh;
+    background: var(--bg-sidebar);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    box-shadow: 4px 0 32px 0 rgba(0,0,0,0.25);
+    padding: 24px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+
+.logo img {
+    width: 48px;
+    height: 48px;
+}
+
+.logo span {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 18px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.nav-item.active, .nav-item:hover {
+    background: var(--accent-color);
+    color: #000 !important;
+    box-shadow: 0 2px 12px 0 rgba(255,184,0,0.10);
+}
+
+.nav-item img {
+    width: 20px;
+    height: 20px;
+}
+
+.sidebar-collapsible > .nav-item {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.sidebar-collapsible .collapse .nav-item {
+    font-weight: 400;
+    font-size: 0.97rem;
+    padding-left: 36px;
+    background: none;
+    color: var(--text-secondary);
+}
+
+.sidebar-collapsible .collapse .nav-item:hover {
+    color: var(--accent-color);
+    background: none;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    background-color: var(--bg-card);
+    margin-top: auto;
+    margin-bottom: 12px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--accent-color);
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-email {
+    font-size: 12px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nav-item.logout {
+    margin: 0 18px 18px 18px;
+    color: #ff4d4d;
+    background: none;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-item.logout:hover {
+    background: #ff4d4d;
+    color: #fff;
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 70px;
+    }
+    .main-content {
+        margin-left: 70px;
+        width: calc(100% - 70px);
+    }
+    .nav-item span, .logo span, .user-info {
+        display: none;
+    }
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding: 0 0 24px 0;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    z-index: 2;
+    margin-top: 16px;
+}
+
+.header h1 {
+    color: var(--accent-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-right: 32px;
+}
+
+.search-bar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: #181818;
+    border-radius: 24px;
+    padding: 0 20px;
+    max-width: 420px;
+    margin: 0 auto;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.10);
+    height: 48px;
+}
+
+.search-bar input {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    padding: 16px 0 16px 12px;
+    width: 100%;
+    outline: none;
+}
+
+.search-bar img {
+    width: 22px;
+    height: 22px;
+    opacity: 0.7;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.icon-btn:hover {
+    background: var(--bg-card);
+}
+
+.profile-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--accent-color);
+    background: #181818;
+}
+
+.profile-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 240px;
+    padding: 32px;
+    min-height: 100vh;
+    width: calc(100% - 240px);
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+    margin-top: 0 !important;
+    padding-top: 64px !important;
+}
+
+.content-wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Portfolio Section */
+.portfolio-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: var(--accent-color);
+    border-radius: 20px;
+    padding: 18px 14px;
+    color: #000;
+    box-shadow: 0 4px 24px 0 rgba(255,184,0,0.10);
+    min-width: 0;
+    margin-bottom: 24px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.portfolio-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.portfolio-list {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.portfolio-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff3cd;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    min-width: 90px;
+}
+
+.portfolio-item .change.positive {
+    color: #00C087;
+}
+
+.portfolio-item .change.negative {
+    color: #FF4D4D;
+}
+
+/* Chart Section */
+.chart-section {
+    background: #181818;
+    border-radius: 20px;
+    padding: 24px 20px;
+    color: #fff;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.15);
+    margin-left: 0;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.chart-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.timeframe-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.timeframe-btn {
+    background: var(--accent-color);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.timeframe-btn.active, .timeframe-btn:hover {
+    background: #fff;
+    color: var(--accent-color);
+}
+
+.chart-container {
+    width: 100%;
+    height: 180px;
+    margin-top: 8px;
+}
+
+/* General Card Shadow */
+.balance-card, .crypto-card, .portfolio-section, .chart-section {
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.15);
+}
+
+/* Balance Overview */
+.balance-overview {
+    grid-column: span 12;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.balance-card {
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+}
+
+.balance-card.main-balance {
+    grid-column: span 6;
+    background: linear-gradient(135deg, #232323 60%, var(--accent-color) 200%);
+    color: #fff;
+    border: none;
+    padding: 40px 32px 32px 32px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25);
+    position: relative;
+}
+
+.balance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.balance-header h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.balance-amount {
+    position: relative;
+    z-index: 1;
+}
+
+.balance-amount h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.balance-amount p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.balance-trend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Stats Cards */
+.stat-card {
+    grid-column: span 3;
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border: 1px solid var(--border-color);
+}
+
+.stat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Crypto Grid */
+.crypto-grid {
+    grid-column: span 12;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.crypto-cards-row {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    margin-top: 24px;
+    justify-content: space-between;
+}
+
+.crypto-card {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 260px;
+    overflow: hidden;
+    position: relative;
+}
+
+.crypto-card {
+    grid-column: span 3;
+    background: #181818;
+    border-radius: 24px;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.15);
+    padding: 24px 20px 20px 20px;
+    border: none;
+    min-width: 220px;
+    max-width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    height: 100%;
+}
+
+.crypto-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.crypto-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.crypto-icon img {
+    width: 32px;
+    height: 32px;
+}
+
+.crypto-trend {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 4px 10px;
+}
+
+.crypto-trend.positive {
+    background: rgba(0,255,163,0.10);
+    color: #00FFA3;
+}
+
+.crypto-trend.negative {
+    background: rgba(255,77,77,0.10);
+    color: #FF4D4D;
+}
+
+.crypto-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.crypto-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.crypto-info .symbol {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.crypto-price {
+    text-align: center;
+}
+
+.crypto-price h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.crypto-price p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.crypto-chart {
+    margin-top: 12px;
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    width: 100% !important;
+    display: block;
+    box-sizing: border-box;
+}
+
+.crypto-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Activity Section */
+.activity-section {
+    grid-column: span 8;
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 24px;
+}
+
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.activity-info {
+    flex-grow: 1;
+}
+
+.activity-info h4 {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.activity-info p {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.activity-amount {
+    text-align: right;
+}
+
+.activity-amount h4 {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.activity-amount p {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* News Section */
+.news-section {
+    grid-column: span 4;
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 24px;
+}
+
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.news-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.news-item:hover {
+    background-color: var(--border-color);
+}
+
+.news-content h4 {
+    font-size: 14px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.news-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .main-content {
+        padding: 24px;
+    }
+    
+    .balance-card.main-balance {
+        grid-column: span 12;
+    }
+    
+    .stat-card {
+        grid-column: span 6;
+    }
+    
+    .crypto-card {
+        grid-column: span 6;
+    }
+}
+
+@media (max-width: 1200px) {
+    .activity-section {
+        grid-column: span 12;
+    }
+    
+    .news-section {
+        grid-column: span 12;
+    }
+    .portfolio-section, .chart-section {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        max-width: 100%;
+        padding: 16px;
+    }
+    
+    .balance-card.main-balance,
+    .stat-card,
+    .crypto-card {
+        grid-column: span 12;
+    }
+    
+    .balance-overview {
+        gap: 16px;
+    }
+}
+
+.dashboard {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.dashboard-grid, .balance-overview, .crypto-grid {
+    max-width: 1800px;
+    margin: 0 auto;
+}
+@media (min-width: 1600px) {
+    .main-content {
+        max-width: calc(100vw - 240px);
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .dashboard, .dashboard-grid, .balance-overview, .crypto-grid {
+        max-width: 1800px;
+    }
+}
+
+.dashboard-bottom-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 32px;
+    align-items: stretch;
+}
+.portfolio-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: var(--accent-color);
+    border-radius: 20px;
+    padding: 18px 14px;
+    color: #000;
+    box-shadow: 0 4px 24px 0 rgba(255,184,0,0.10);
+    min-width: 0;
+    margin-bottom: 24px;
+    width: 100%;
+    max-width: 100%;
+}
+.portfolio-list {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    }
+.portfolio-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff3cd;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    min-width: 90px;
+}
+.chart-section {
+    background: #181818;
+    border-radius: 20px;
+    padding: 24px 20px;
+    color: #fff;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.15);
+    margin-left: 0;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.crypto-card {
+    overflow: hidden;
+    position: relative;
+}
+.crypto-chart {
+    margin-top: 12px;
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    width: 100% !important;
+    display: block;
+    box-sizing: border-box;
+}
+@media (max-width: 1200px) {
+    .portfolio-section, .chart-section {
+        max-width: 100%;
+    }
+}
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: flex-start;
+    z-index: 1000;
+}
+.nav-menu {
+    flex: 1 1 auto;
+}
+.user-profile {
+    margin-top: auto;
+    margin-bottom: 24px;
+}
+.nav-item.logout {
+    margin-bottom: 12px;
+}
+
+.top-taskbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000 !important;
+    color: #000;
+    padding: 0 0 0 0 !important;
+    margin-left: 0 !important;
+    height: 56px !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100;
+    gap: 0;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.10) !important;
+}
+
+.top-taskbar .dropdown {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.top-taskbar-link {
+    color: #000 !important;
+    background: var(--accent-color) !important;
+    border-radius: 24px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    padding: 8px 32px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 18px !important;
+    transition: color 0.2s, background 0.2s !important;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04) !important;
+    white-space: nowrap !important;
+    border: none !important;
+    }
+.top-taskbar-link:hover, .top-taskbar-link:focus {
+    background: #ffd700cc !important;
+    color: #000 !important;
+}
+
+.top-taskbar-separator {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 1px !important;
+    height: 40px !important;
+    border-left: 2px dotted #fff !important;
+    margin: 0 12px !important;
+    background: none !important;
+}
+
+.top-taskbar .dropdown-menu {
+    background: #111 !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    border: none !important;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.15) !important;
+    margin-top: 8px !important;
+    min-width: 180px !important;
+}
+.top-taskbar .dropdown-item {
+    color: #fff !important;
+    background: transparent !important;
+    font-size: 1rem !important;
+    font-family: 'Inter', sans-serif !important;
+    padding: 10px 20px !important;
+    border-radius: 6px !important;
+    transition: background 0.2s, color 0.2s !important;
+}
+.top-taskbar .dropdown-item:hover, .top-taskbar .dropdown-item:focus {
+    background: #333 !important;
+    color: var(--accent-color) !important;
+}
+
+@media (max-width: 1200px) {
+    .top-taskbar {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+}
+@media (max-width: 700px) {
+    .top-taskbar {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+        flex-wrap: wrap !important;
+        height: auto !important;
+    }
+    .top-taskbar-link {
+        margin: 8px 8px !important;
+        padding: 8px 16px !important;
+        height: 36px !important;
+    }
+    .top-taskbar-separator {
+        height: 24px !important;
+    }
+}
+
+.main-content > *, .content-wrapper, .dashboard-grid {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}

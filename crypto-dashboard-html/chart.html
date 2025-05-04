@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart - Crypto Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chart.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="images/logo.svg" alt="Logo">
+                <span>CryptoWallet</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <img src="images/icons/dashboard.svg" alt="Dashboard">
+                    <span>Dashboard</span>
+                </a>
+                <a href="account.html" class="nav-item">
+                    <img src="images/icons/account.svg" alt="Account">
+                    <span>Account</span>
+                </a>
+                <a href="chart.html" class="nav-item">
+                    <img src="images/icons/chart.svg" alt="Chart">
+                    <span>Chart</span>
+                </a>
+                <a href="wallet.html" class="nav-item">
+                    <img src="images/icons/wallet.svg" alt="Wallet">
+                    <span>Wallet</span>
+                </a>
+                <a href="news.html" class="nav-item">
+                    <img src="images/icons/news.svg" alt="News">
+                    <span>News</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <img src="images/icons/settings.svg" alt="Settings">
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <div class="user-profile mt-auto">
+                <div class="user-avatar">
+                    <img src="https://png.pngtree.com/png-vector/20240819/ourlarge/pngtree-3d-person-icon-human-and-profile-illustration-logo-png-image_13542028.png" alt="User Avatar">
+                </div>
+                <div class="user-info">
+                    <div class="user-name">iishuuuu</div>
+                    <div class="user-email">iishuuuu@gmail.com</div>
+                </div>
+            </div>
+            <a href="#" class="nav-item logout">
+                <img src="images/icons/logout.svg" alt="Log out">
+                <span>Log out</span>
+            </a>
+        </aside>
+
+        <!-- Top Taskbar for New Features as Dropdowns -->
+        <div class="top-taskbar">
+            <div class="dropdown">
+                <a class="top-taskbar-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tables</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="table-example.html">Bootstrap Tables</a></li>
+                </ul>
+            </div>
+            <span class="top-taskbar-separator"></span>
+            <div class="dropdown">
+                <a class="top-taskbar-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Page Examples</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="login.html">Sign In</a></li>
+                    <li><a class="dropdown-item" href="signup.html">Sign Up</a></li>
+                    <li><a class="dropdown-item" href="forgot-password.html">Forgot password</a></li>
+                    <li><a class="dropdown-item" href="reset-password.html">Reset password</a></li>
+                    <li><a class="dropdown-item" href="lock.html">Lock</a></li>
+                    <li><a class="dropdown-item" href="404.html">404 Not Found</a></li>
+                    <li><a class="dropdown-item" href="500.html">500 Not Found</a></li>
+                </ul>
+            </div>
+            <span class="top-taskbar-separator"></span>
+            <div class="dropdown">
+                <a class="top-taskbar-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Components</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="components.html">All Components</a></li>
+                    <li><a class="dropdown-item" href="components.html#buttons">Buttons</a></li>
+                    <li><a class="dropdown-item" href="components.html#notifications">Notifications</a></li>
+                    <li><a class="dropdown-item" href="components.html#forms">Forms</a></li>
+                    <li><a class="dropdown-item" href="components.html#modals">Modals</a></li>
+                    <li><a class="dropdown-item" href="components.html#typography">Typography</a></li>
+                </ul>
+            </div>
+            <span class="top-taskbar-separator"></span>
+            <div class="dropdown">
+                <a class="top-taskbar-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Charts</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="chart.html">Crypto Charts</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Header -->
+                <header class="header">
+                    <div class="search-bar">
+                        <img src="images/search.svg" alt="Search">
+                        <input type="text" placeholder="Search">
+                    </div>
+                    <div class="header-right">
+                        <button class="icon-btn">
+                            <img src="images/mail.svg" alt="Mail">
+                        </button>
+                        <button class="icon-btn">
+                            <img src="images/notification.svg" alt="Notifications">
+                            <span class="notification-badge">2</span>
+                        </button>
+                        <button class="profile-btn">
+                            <img src="https://png.pngtree.com/png-vector/20240819/ourlarge/pngtree-3d-person-icon-human-and-profile-illustration-logo-png-image_13542028.png" alt="Profile">
+                        </button>
+                    </div>
+                </header>
+
+                <!-- Chart Content -->
+                <div class="chart-page">
+                    <div class="chart-controls">
+                        <div class="coin-selector">
+                            <img src="images/bitcoin.svg" alt="Bitcoin" class="coin-icon">
+                            <div class="coin-info">
+                                <div class="coin-name">
+                                    <h2>Bitcoin</h2>
+                                    <span class="coin-symbol">BTC</span>
+                                </div>
+                                <div class="coin-price">
+                                    <span class="price">$52,291.00</span>
+                                    <span class="change positive">+2.5%</span>
+                                </div>
+                            </div>
+                            <button class="dropdown-btn">
+                                <img src="images/dropdown.svg" alt="Dropdown">
+                            </button>
+                        </div>
+                        <div class="chart-options">
+                            <div class="time-range">
+                                <button class="time-btn">1H</button>
+                                <button class="time-btn">24H</button>
+                                <button class="time-btn active">7D</button>
+                                <button class="time-btn">1M</button>
+                                <button class="time-btn">1Y</button>
+                                <button class="time-btn">ALL</button>
+                            </div>
+                            <div class="chart-type">
+                                <button class="chart-type-btn active">
+                                    <img src="images/candlestick.svg" alt="Candlestick">
+                                </button>
+                                <button class="chart-type-btn">
+                                    <img src="images/line.svg" alt="Line">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="main-chart-container">
+                        <canvas id="mainChart"></canvas>
+                    </div>
+
+                    <div class="chart-stats">
+                        <div class="stat-card">
+                            <span class="stat-label">Market Cap</span>
+                            <h3>$1.02T</h3>
+                            <span class="stat-change positive">+2.5%</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Volume (24h)</span>
+                            <h3>$28.64B</h3>
+                            <span class="stat-change negative">-5.2%</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Circulating Supply</span>
+                            <h3>19.5M BTC</h3>
+                            <span class="stat-change neutral">92.7%</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">All-Time High</span>
+                            <h3>$69,045</h3>
+                            <span class="stat-date">Nov 10, 2021</span>
+                        </div>
+                    </div>
+
+                    <div class="order-book">
+                        <div class="order-book-header">
+                            <h2>Order Book</h2>
+                            <div class="order-book-controls">
+                                <button class="order-book-btn active">0.1</button>
+                                <button class="order-book-btn">1.0</button>
+                                <button class="order-book-btn">10.0</button>
+                            </div>
+                        </div>
+                        <div class="order-book-content">
+                            <div class="asks">
+                                <div class="order-row">
+                                    <span class="price">52,291.00</span>
+                                    <span class="amount">0.2854</span>
+                                    <span class="total">14,923.85</span>
+                                </div>
+                                <!-- More ask orders -->
+                            </div>
+                            <div class="current-price">
+                                <span class="price">52,291.00</span>
+                                <span class="price-label">BTC/USD</span>
+                            </div>
+                            <div class="bids">
+                                <div class="order-row">
+                                    <span class="price">52,290.00</span>
+                                    <span class="amount">0.1542</span>
+                                    <span class="total">8,063.12</span>
+                                </div>
+                                <!-- More bid orders -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

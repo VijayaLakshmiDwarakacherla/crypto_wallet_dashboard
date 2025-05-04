@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Crypto Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { background: #000; color: #fff; font-family: 'Inter', sans-serif; }
+        .auth-container { max-width: 400px; margin: 80px auto; background: #181818; border-radius: 20px; box-shadow: 0 4px 24px 0 rgba(0,0,0,0.15); padding: 40px 32px; }
+        .auth-title { color: var(--accent-color); font-size: 2rem; font-weight: 700; margin-bottom: 24px; text-align: center; }
+        .auth-form { display: flex; flex-direction: column; gap: 18px; }
+        .auth-form input { padding: 14px; border-radius: 10px; border: 1px solid var(--border-color); background: #222; color: #fff; font-size: 1rem; }
+        .auth-form input:focus { outline: none; border-color: var(--accent-color); }
+        .auth-btn { background: var(--accent-color); color: #000; border: none; border-radius: 10px; padding: 14px; font-size: 1.1rem; font-weight: 700; cursor: pointer; margin-top: 10px; }
+        .auth-btn:hover { opacity: 0.9; }
+        .auth-link { color: var(--accent-color); text-align: center; margin-top: 18px; display: block; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-title">Sign In</div>
+        <form class="auth-form" action="dashboard.html" method="post">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button class="auth-btn" type="submit">Login</button>
+        </form>
+        <a class="auth-link" href="signup.html">Don't have an account? Sign up</a>
+    </div>
+    <script>
+    // Redirect to dashboard if already logged in
+    if (localStorage.getItem('isLoggedIn')) {
+        window.location.href = 'index.html';
+    }
+    // Handle login form
+    const form = document.querySelector('.auth-form');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        localStorage.setItem('isLoggedIn', 'true');
+        window.location.href = 'index.html';
+    });
+    </script>
+</body>
+</html> 

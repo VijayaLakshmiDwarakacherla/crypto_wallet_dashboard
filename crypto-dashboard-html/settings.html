@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Crypto Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="images/logo.svg" alt="Logo">
+                <span>CryptoWallet</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <img src="images/icons/dashboard.svg" alt="Dashboard">
+                    <span>Dashboard</span>
+                </a>
+                <a href="account.html" class="nav-item">
+                    <img src="images/icons/account.svg" alt="Account">
+                    <span>Account</span>
+                </a>
+                <a href="chart.html" class="nav-item">
+                    <img src="images/icons/chart.svg" alt="Chart">
+                    <span>Chart</span>
+                </a>
+                <a href="wallet.html" class="nav-item">
+                    <img src="images/icons/wallet.svg" alt="Wallet">
+                    <span>Wallet</span>
+                </a>
+                <a href="news.html" class="nav-item">
+                    <img src="images/icons/news.svg" alt="News">
+                    <span>News</span>
+                </a>
+                <a href="settings.html" class="nav-item active">
+                    <img src="images/icons/settings.svg" alt="Settings">
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <div class="user-profile mt-auto">
+                <div class="user-avatar">
+                    <img src="https://png.pngtree.com/png-vector/20240819/ourlarge/pngtree-3d-person-icon-human-and-profile-illustration-logo-png-image_13542028.png" alt="User Avatar">
+                </div>
+                <div class="user-info">
+                    <div class="user-name">iishuuuu</div>
+                    <div class="user-email">iishuuuu@gmail.com</div>
+                </div>
+            </div>
+            <a href="#" class="nav-item logout">
+                <img src="images/icons/logout.svg" alt="Log out">
+                <span>Log out</span>
+            </a>
+        </aside>
+
+        <!-- Top Taskbar for New Features as Dropdowns -->
+        <div class="top-taskbar">
+            <div class="dropdown">
+                <a class="top-taskbar-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tables</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="table-example.html">Bootstrap Tables</a></li>
+                </ul>
+            </div>
+            <span class="top-taskbar-separator"></span>
+            <div class="dropdown">
+                <a class="top-taskbar-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Page Examples</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="login.html">Sign In</a></li>
+                    <li><a class="dropdown-item" href="signup.html">Sign Up</a></li>
+                    <li><a class="dropdown-item" href="forgot-password.html">Forgot password</a></li>
+                    <li><a class="dropdown-item" href="reset-password.html">Reset password</a></li>
+                    <li><a class="dropdown-item" href="lock.html">Lock</a></li>
+                    <li><a class="dropdown-item" href="404.html">404 Not Found</a></li>
+                    <li><a class="dropdown-item" href="500.html">500 Not Found</a></li>
+                </ul>
+            </div>
+            <span class="top-taskbar-separator"></span>
+            <div class="dropdown">
+                <a class="top-taskbar-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Components</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="components.html">All Components</a></li>
+                    <li><a class="dropdown-item" href="components.html#buttons">Buttons</a></li>
+                    <li><a class="dropdown-item" href="components.html#notifications">Notifications</a></li>
+                    <li><a class="dropdown-item" href="components.html#forms">Forms</a></li>
+                    <li><a class="dropdown-item" href="components.html#modals">Modals</a></li>
+                    <li><a class="dropdown-item" href="components.html#typography">Typography</a></li>
+                </ul>
+            </div>
+            <span class="top-taskbar-separator"></span>
+            <div class="dropdown">
+                <a class="top-taskbar-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Charts</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="chart.html">Crypto Charts</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Header -->
+                <header class="header">
+                    <h1>Settings</h1>
+                    <div class="header-right">
+                        <button class="icon-btn">
+                            <img src="images/mail.svg" alt="Mail">
+                        </button>
+                        <button class="icon-btn">
+                            <img src="images/notification.svg" alt="Notifications">
+                            <span class="notification-badge">2</span>
+                        </button>
+                        <button class="profile-btn">
+                            <img src="https://png.pngtree.com/png-vector/20240819/ourlarge/pngtree-3d-person-icon-human-and-profile-illustration-logo-png-image_13542028.png" alt="Profile">
+                        </button>
+                    </div>
+                </header>
+
+                <!-- Settings Content -->
+                <div class="settings-page">
+                    <div class="settings-grid">
+                        <!-- Appearance Settings -->
+                        <div class="settings-card">
+                            <div class="settings-header">
+                                <h2>Appearance</h2>
+                                <p>Customize how the dashboard looks and feels</p>
+                            </div>
+                            <div class="settings-content">
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h3>Theme</h3>
+                                        <p>Choose your preferred color theme</p>
+                                    </div>
+                                    <div class="theme-selector">
+                                        <button class="theme-btn active" data-theme="dark">
+                                            <span class="theme-preview dark"></span>
+                                            Dark
+                                        </button>
+                                        <button class="theme-btn" data-theme="light">
+                                            <span class="theme-preview light"></span>
+                                            Light
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h3>Accent Color</h3>
+                                        <p>Select your preferred accent color</p>
+                                    </div>
+                                    <div class="color-selector">
+                                        <button class="color-btn active" style="--color: #FFD700"></button>
+                                        <button class="color-btn" style="--color: #00FFA3"></button>
+                                        <button class="color-btn" style="--color: #FF4D4D"></button>
+                                        <button class="color-btn" style="--color: #627EEA"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Preferences Settings -->
+                        <div class="settings-card">
+                            <div class="settings-header">
+                                <h2>Preferences</h2>
+                                <p>Configure your trading and display preferences</p>
+                            </div>
+                            <div class="settings-content">
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h3>Default Currency</h3>
+                                        <p>Set your preferred display currency</p>
+                                    </div>
+                                    <select class="currency-select">
+                                        <option value="USD">USD</option>
+                                        <option value="EUR">EUR</option>
+                                        <option value="GBP">GBP</option>
+                                        <option value="JPY">JPY</option>
+                                    </select>
+                                </div>
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h3>Price Alerts</h3>
+                                        <p>Get notified about price changes</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h3>Trading Confirmations</h3>
+                                        <p>Require confirmation before trades</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notifications Settings -->
+                        <div class="settings-card">
+                            <div class="settings-header">
+                                <h2>Notifications</h2>
+                                <p>Manage your notification preferences</p>
+                            </div>
+                            <div class="settings-content">
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h3>Email Notifications</h3>
+                                        <p>Receive important updates via email</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h3>Push Notifications</h3>
+                                        <p>Get instant updates on your device</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h3>SMS Notifications</h3>
+                                        <p>Get updates via text message</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Privacy Settings -->
+                        <div class="settings-card">
+                            <div class="settings-header">
+                                <h2>Privacy & Security</h2>
+                                <p>Manage your security preferences</p>
+                            </div>
+                            <div class="settings-content">
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h3>Two-Factor Authentication</h3>
+                                        <p>Add an extra layer of security</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h3>Activity Log</h3>
+                                        <p>Track all account activity</p>
+                                    </div>
+                                    <button class="view-btn">View Log</button>
+                                </div>
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h3>Session Management</h3>
+                                        <p>Manage active sessions</p>
+                                    </div>
+                                    <button class="view-btn">View Sessions</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-actions">
+                        <button class="cancel-btn">Cancel Changes</button>
+                        <button class="save-btn">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
